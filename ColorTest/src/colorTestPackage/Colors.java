@@ -33,9 +33,6 @@ import java.util.*;
  * 
  */
 
-//http://codereview.stackexchange.com/questions/57078/more-elegant-way-to-increment-integers-in-map
-// black, blue, green, grey, orange, purple, red, white, and yellow. 
-//There are total words: 4,995,329
 public class Colors {
 	 Integer count = 0;
 	
@@ -47,7 +44,7 @@ public class Colors {
 		//1. Find and Count the colors with correct spelling, else put the ones without correct spelling a side.
 		try {
 		while (colorsKey.hasNext()) {				//while true if colorsKey file has another token(or word) in it
-			String nextString = colorsKey.next();	//get the next token/word and assign it to nextString, this will represent the next word in the file.
+			String nextString = colorsKey.next();		//get the next token/word and assign it to nextString, this will represent the next word in the file.
 		    if (nextString.equalsIgnoreCase("black"))  { 
 		    	black++;
 		    }
@@ -108,16 +105,9 @@ public class Colors {
 				other++;		//else if none of the compared strings match, than place it inside other count...these represent the misspelled/ and or gibberish words.
 				Integer previousValue = nextstringHash.get(nextString);
 				nextstringHash.put(nextString, previousValue == null ? 1 : previousValue + 1);
-				//http://stackoverflow.com/questions/513832/how-do-i-compare-strings-in-java
-				//http://www.leepoint.net/data/expressions/22compareobjects.html
 		   }
 		    
-		}	//3. prints out misspelled/gibberish: key-> words, value -> total count for each word found
-			//for(Map.Entry m:nextstringHash.entrySet()){  
-			//System.out.println(m.getKey()+" "+m.getValue());
-			//}
-			
-			
+		}		
 		}catch (NoSuchElementException e) {	//just in case we use Exception Handling
 			System.out.println("handled");
 		}finally {
